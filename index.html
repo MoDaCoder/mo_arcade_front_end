@@ -6,9 +6,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mo's Arcade</title>
 </head>
-<script src="src/index.js"></script>
+
 <body>
-    "HELLO WORLD! :D"
+    <h1 className="arcade">"Mo's Arcade (Logo Here)"</h1>
     
+    <h3>Enter Player Tag</h3>
+
+    <div>
+        <form id=name-form>
+            <input type=text id=name-form>
+            <input type="submit">
+        </form>
+    </div>
+
+        <div id="card" className="card">
+            <div id="card-body" className="card-body">
+                <table id="table" className="table">
+                    <tbody>
+                        <thead className=high-score> HIGH SCORE BOARD</thead>
+                        <tr>
+                            <td id="index">index-</td>
+                            <td id="name">name-</td>
+                            <td id="score">score </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+    <script src="src/index.js"></script>
+
 </body>
 </html>
