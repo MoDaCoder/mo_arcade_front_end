@@ -9,12 +9,12 @@
 
 <body>
     <h1 className="arcade">"Mo's Arcade (Logo Here)"</h1>
-    
+
     <h3>Enter Player Tag</h3>
 
     <div>
-        <form id=name-form>
-            <input type=text id=name-form>
+        <form id="name-form">
+            <input type=text id="name-input">
             <input type="submit">
         </form>
     </div>
@@ -25,9 +25,13 @@
                     <tbody>
                         <thead className=high-score> HIGH SCORE BOARD</thead>
                         <tr>
-                            <td id="index">index-</td>
-                            <td id="name">name-</td>
-                            <td id="score">score </td>
+                            <th scope="col">Player -</th>
+                            <th scope="col">Score</th>
+                        </tr>
+                        <tr scope="row">
+                            <td id="player-name"></td>
+                            <!-- Fix <ol> -->
+                            <td id="score"> score (will fix later) </td>
                         </tr>
                     </tbody>
                 </table>
