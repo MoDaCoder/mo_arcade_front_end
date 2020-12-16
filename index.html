@@ -14,7 +14,13 @@
 
     <div>
         <form id="name-form">
-            <input type=text id="name-input">
+            <input type id="name-input">
+            <input type="submit">
+        </form>
+    </div>
+    <div>
+        <form id="score-form">
+            <input type id="score-input">
             <input type="submit">
         </form>
     </div>
@@ -29,9 +35,9 @@
                             <th scope="col">Score</th>
                         </tr>
                         <tr scope="row">
-                            <td id="player-name"></td>
-                            <!-- Fix <ol> -->
-                            <td id="score"> score (will fix later) </td>
+                            <td id="player-name"><ol id="ol1"></ol> </td>
+                            <!-- Append score from games (will change later)-->
+                            <td id="player-score"><ul id="score-ul"></ul></td>
                         </tr>
                     </tbody>
                 </table>
