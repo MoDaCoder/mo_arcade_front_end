@@ -6,7 +6,6 @@ const scoreUl = document.getElementById('score-ul')
 const boardsURL = 'http://localhost:3000/boards'
 //Player Name
 const nameForm = document.getElementById("name-form")
-// const nameInput = document.getElementById("name-input")
 const ol = document.getElementById('ol1')
 const playersURL = 'http://localhost:3000/players'
 
@@ -14,14 +13,15 @@ const playersURL = 'http://localhost:3000/players'
 function fetchBoards(){
     fetch(boardsURL)
     .then(res => res.json())
-    .then(boards => boards.forEach(board => renderScore(board.score)))
+    .then(boards => boards.forEach(renderBoard))
 }
 
 scoreForm.addEventListener("submit", submitScore)
 
 //Post Boards Score Fetch
-console.log('about to post a score');
+// console.log('about to post a score');
 function submitScore(){
+    // debugger
     event.preventDefault()
     const configObj = {
         method: "POST",
@@ -34,22 +34,22 @@ function submitScore(){
         })
     }
     fetch(boardsURL, configObj)
-
-    renderScore(scoreInput.value)
+    
+    .then(res => res.json())
+    .then(renderBoard)
 }
 
-function renderScore(score){
-    console.log(score)
-    // event.preventDefault()
-
+function renderBoard(board){
+    // console.log(board)
     const li = document.createElement('li')
-    li.innerText = score
+    li.dataset.id = board.id
+    li.innerText = board.score
+    li.className = "dataId"
 
     scoreUl.append(li)
 
     scoreForm.reset()
 }
-
 //Player Name
 
 nameForm.addEventListener("submit", renderName)
@@ -61,9 +61,9 @@ function renderName(e){
     const ol = document.getElementById('ol1')
     const li = document.createElement('li')
 
+
     li.innerText = nameInput + " -"
     ol.append(li)
-
     submitName(nameInput)
 
     e.target.reset()
@@ -78,7 +78,8 @@ function submitName(name){
             "Accept": "application/json"
         },
         body: JSON.stringify({
-            player: {name: name, board_id: current_board }
+            player: {name: name, board_id: 1 }
+            // player: {name: name}
         })
     })
 
