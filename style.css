@@ -1,3 +1,27 @@
+body {
+  background-color: #101010;
+  color: #ffffff;
+}
+
+h1 {
+  color: #39FF14;
+}
+
+h3 {
+  color: #39FF14;
+}
+
+.player-name {
+  color: #39FF14;
+}
+
+.sound-track {
+  width:100px; 
+  position:absolute; 
+  right:900px;
+  bottom:0px;
+}
+
 .grid {
     display: flex;
     flex-wrap: wrap;

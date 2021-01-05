@@ -25,28 +25,11 @@
             <input type="submit">
         </form>
     </div>
-
-    <!-- <div>
-        <form id="name-form">
-            <input type id="name-input" placeholder="Player Tag">
-            <input type="submit">
-        </form>
-    </div>
-    <div>
-        <form id="score-form">
-            <input type id="score-input" placeholder="Player Score">
-            <input type="submit">
-        </form>
-    </div> -->
-
-    <!-- <div id="h3">
-    </div> -->
-
         <div id="card" className="card">
             <div id="card-body" className="card-body">
                 <table id="table" className="table">
                     <tbody>
-                        <thead className=high-score> 
+                        <thead className="high-score"> 
                             <div id="h3"></div> 
                         </thead>
                         <tr>
@@ -54,9 +37,9 @@
                             <th scope="col">Score</th>
                         </tr>
                         <tr scope="row">
-                            <td id="player-name"><ol id="ol1"></ol> </td>
+                            <td id="player-name"><ol id="ol1"></ol></td>
                             <!-- Append score from games (will change later)-->
-                            <td id="player-score"><ul id="score-ul"></ul></td>
+                            <td id="player-score" ><ul id="score-ul"></ul></td>
                         </tr>
                     </tbody>
                 </table>
@@ -67,6 +50,13 @@
 
     <div class="grid">
     </div>
+    <div class="sound-track">
+    <!-- <div style="width:100px; position:absolute; right:900px;"> -->
+    <audio controls id="sound-track">
+        <source src="media/Arcade2mp3.mp3" type="audio/mp3">
+    </audio>
+    </div>
+
     <link rel="stylesheet" href="style.css"></link>
     <script src="src/index.js"></script>
 
