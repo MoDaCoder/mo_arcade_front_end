@@ -7,19 +7,12 @@ const boardsURL = 'http://localhost:3000/boards'
 
 //Player Name & Score
 const playerForm = document.getElementById('player-form')
-
 const nameInput = document.getElementById('name-input')
 const nameOl = document.getElementById('ol1')
-// const nameForm = document.getElementById("name-form")
-
-
 const scoreInput = document.getElementById("score-input")
 const scoreUl = document.getElementById('score-ul')
-// const scoreForm = document.getElementById("score-form")
-
 const playersURL = 'http://localhost:3000/players'
 
-// Creating Board Name
 // Get Boards Name
 function fetchBoards(){
     fetch(boardsURL)
@@ -29,6 +22,7 @@ function fetchBoards(){
 
 boardNameForm.addEventListener("submit", submitBoardName)
 
+//Posting Board
  function submitBoardName(){
      event.preventDefault()
 
@@ -48,6 +42,7 @@ boardNameForm.addEventListener("submit", submitBoardName)
     .then(renderBoardName)
  }
 
+//Rendering Board
 function renderBoardName(board){
     console.log(board)
     const h3 = document.createElement('h3')
@@ -58,52 +53,25 @@ function renderBoardName(board){
     boardNameForm.reset()
 }
 
-// //Get Boards Score Fetch
-// function fetchBoards(){
-//     fetch(boardsURL)
-//     .then(res => res.json())
-//     .then(boards => boards.forEach(renderBoard))
-// }
-
-// scoreForm.addEventListener("submit", submitScore)
-
-// Post Boards Score Fetch
-// console.log('about to post a score');
-// function submitScore(){
-//     // debugger
-//     event.preventDefault()
-//     const configObj = {
-//         method: "POST",
-//         headers: {
-//             "Content-type": "application/json",
-//             "Accept": "application/json"
-//         },
-//         body:JSON.stringify({
-//             score: parseInt(scoreInput.value)
-//         })
-//     }
-//     fetch(boardsURL, configObj)
-    
-//     .then(res => res.json())
-//     .then(renderBoard)
-// }
-
-// function renderBoard(board){
-//     console.log(board)
-//     const li = document.createElement('li')
-//     li.dataset.id = board.id
-//     li.innerText = board.score
-//     // li.className = "dataId"
-
-//     scoreUl.append(li)
-
-//     scoreForm.reset()
-// }
-
-// Player Name & Score
 playerForm.addEventListener("submit", renderPlayer)
 
-// //render player name to DOM
+//Post Player
+function submitPlayer(name, scoreInput){
+    // debugger
+    fetch(playersURL, {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            player: {name: name, board_id: 1 ,
+            score: parseInt(scoreInput.value),
+            board_id: 1 }
+        })
+    })
+}
+//render player name to DOM
 function renderPlayer(e){
     e.preventDefault()
     console.log(e.target.children[0].value)
@@ -123,60 +91,6 @@ function renderPlayer(e){
 
     e.target.reset()
 }
-
-// function submitPlayer(name, scoreInput){
-//     // debugger
-//     fetch(playersURL, {
-//         method: "POST",
-//         headers: {
-//             "Content-type": "application/json",
-//             "Accept": "application/json"
-//         },
-//         body: JSON.stringify({
-//             player: {name: name, board_id: 1 ,
-//             score: parseInt(scoreInput.value),
-//             board_id: 1 }
-//         })
-//     })
-
-// }
-
-// playerForm.addEventListener("submit", renderName)
-
-// //render player name to DOM
-// function renderName(e){
-//     e.preventDefault()
-//     console.log(document.getElementById('score-ul').dataset.id)
-//     const nameInput = e.target.children[0].value
-//     const ol = document.getElementById('ol1')
-//     const li = document.createElement('li')
-
-
-//     li.innerText = nameInput + " -"
-//     ol.append(li)
-//     submitName(nameInput)
-
-//     e.target.reset()
-// }
-
-// function submitName(name){
-//     // debugger
-//     fetch(playersURL, {
-//         method: "POST",
-//         headers: {
-//             "Content-type": "application/json",
-//             "Accept": "application/json"
-//         },
-//         body: JSON.stringify({
-//             player: {name: name, board_id: 1 ,
-//             score: parseInt(scoreInput.value),
-//             board_id: 1 }
-
-//             // player: {name: name}
-//         })
-//     })
-
-// }
 
 fetchBoards()
 
