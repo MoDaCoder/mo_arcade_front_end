@@ -1,24 +1,15 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
 Things you may want to cover:
 
-* Ruby version
+* Welcome To Mo's Arcade! Where you can play fun online games to compete for a highscore!
 
-* System dependencies
+* Used: Javascript, HTML, CSS
 
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
+* Rails API as the Back End
 
 * Deployment instructions
+Load index.html file on to a web server and run rails s in your terminal when in the rails API folder to boot up localhost3000.
 
-* ...
+* Link To Rails API Github Repo:
+https://github.com/MoDaCoder/mo_arcade_back_end.git
