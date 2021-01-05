@@ -7,14 +7,15 @@ const boardsURL = 'http://localhost:3000/boards'
 
 //Player Name & Score
 const playerForm = document.getElementById('player-form')
-// const scoreForm = document.getElementById("score-form")
-
-const scoreInput = document.getElementById("board-input")
-const scoreUl = document.getElementById('score-ul')
-// const nameForm = document.getElementById("name-form")
 
 const nameInput = document.getElementById('name-input')
-const ol = document.getElementById('ol1')
+const nameOl = document.getElementById('ol1')
+// const nameForm = document.getElementById("name-form")
+
+
+const scoreInput = document.getElementById("score-input")
+const scoreUl = document.getElementById('score-ul')
+// const scoreForm = document.getElementById("score-form")
 
 const playersURL = 'http://localhost:3000/players'
 
@@ -25,10 +26,9 @@ function fetchBoards(){
     .then(res => res.json())
     .then(boards => boards.forEach(renderBoardName))
 }
-console.log(boardNameForm)
+
 boardNameForm.addEventListener("submit", submitBoardName)
 
-console.log('about to post a board name')
  function submitBoardName(){
      event.preventDefault()
 
@@ -99,24 +99,46 @@ function renderBoardName(board){
 
 //     scoreForm.reset()
 // }
-// //Player Name & Score
 
-// nameForm.addEventListener("submit", renderName)
+// Player Name & Score
+playerForm.addEventListener("submit", renderPlayer)
 
 // //render player name to DOM
-// function renderName(e){
-//     e.preventDefault()
-//     console.log(document.getElementById('score-ul').dataset.id)
-//     const nameInput = e.target.children[0].value
-//     const ol = document.getElementById('ol1')
-//     const li = document.createElement('li')
+function renderPlayer(e){
+    e.preventDefault()
+    console.log(e.target.children[0].value)
+    const nameInput = e.target.children[0].value
+    const nameLi = document.createElement('li')
+    nameLi.innerText = nameInput + " -"
+    nameOl.append(nameLi)
 
+    console.log(e.target.children[1].value)
+    const scoreInput = e.target.children[1].value
+    const scoreLi = document.createElement('li')
+    scoreLi.innerText = scoreInput
 
-//     li.innerText = nameInput + " -"
-//     ol.append(li)
-//     submitName(nameInput)
+    scoreUl.append(scoreLi)
 
-//     e.target.reset()
+    submitPlayer(nameInput, scoreInput)
+
+    e.target.reset()
+}
+
+// function submitPlayer(name, scoreInput){
+//     // debugger
+//     fetch(playersURL, {
+//         method: "POST",
+//         headers: {
+//             "Content-type": "application/json",
+//             "Accept": "application/json"
+//         },
+//         body: JSON.stringify({
+//             player: {name: name, board_id: 1 ,
+//             score: parseInt(scoreInput.value),
+//             board_id: 1 }
+//         })
+//     })
+
 // }
 
 // playerForm.addEventListener("submit", renderName)
