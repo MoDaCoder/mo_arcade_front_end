@@ -1,89 +1,160 @@
 //**** Score Board ****
-//Temporary Player Score
-const scoreForm = document.getElementById("score-form")
-const scoreInput = document.getElementById("score-input")
-const scoreUl = document.getElementById('score-ul')
+//Board Name
+const boardNameForm = document.getElementById("board-name-form")
+const boardNameInput = document.getElementById("board-name-Input")
+const boardTitle = document.getElementById("h3")
 const boardsURL = 'http://localhost:3000/boards'
-//Player Name
-const nameForm = document.getElementById("name-form")
+
+//Player Name & Score
+const playerForm = document.getElementById('player-form')
+// const scoreForm = document.getElementById("score-form")
+
+const scoreInput = document.getElementById("board-input")
+const scoreUl = document.getElementById('score-ul')
+// const nameForm = document.getElementById("name-form")
+
+const nameInput = document.getElementById('name-input')
 const ol = document.getElementById('ol1')
+
 const playersURL = 'http://localhost:3000/players'
 
-//Get Boards Score Fetch
+// Creating Board Name
+// Get Boards Name
 function fetchBoards(){
     fetch(boardsURL)
     .then(res => res.json())
-    .then(boards => boards.forEach(renderBoard))
+    .then(boards => boards.forEach(renderBoardName))
 }
+console.log(boardNameForm)
+boardNameForm.addEventListener("submit", submitBoardName)
 
-scoreForm.addEventListener("submit", submitScore)
+console.log('about to post a board name')
+ function submitBoardName(){
+     event.preventDefault()
 
-//Post Boards Score Fetch
-// console.log('about to post a score');
-function submitScore(){
-    // debugger
-    event.preventDefault()
-    const configObj = {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json",
-            "Accept": "application/json"
-        },
-        body:JSON.stringify({
-            score: parseInt(scoreInput.value)
-        })
-    }
+     const configObj = {
+         method: "Post",
+         headers: {
+             "Content-type": "application/json",
+             "Accept": "application/json"
+         },
+         body:JSON.stringify({
+            name: boardNameInput.value
+         })
+     }
     fetch(boardsURL, configObj)
     
     .then(res => res.json())
-    .then(renderBoard)
+    .then(renderBoardName)
+ }
+
+function renderBoardName(board){
+    console.log(board)
+    const h3 = document.createElement('h3')
+    h3.innerText = board.name
+    
+    boardTitle.append(h3)
+
+    boardNameForm.reset()
 }
 
-function renderBoard(board){
-    // console.log(board)
-    const li = document.createElement('li')
-    li.dataset.id = board.id
-    li.innerText = board.score
-    li.className = "dataId"
+// //Get Boards Score Fetch
+// function fetchBoards(){
+//     fetch(boardsURL)
+//     .then(res => res.json())
+//     .then(boards => boards.forEach(renderBoard))
+// }
 
-    scoreUl.append(li)
+// scoreForm.addEventListener("submit", submitScore)
 
-    scoreForm.reset()
-}
-//Player Name
+// Post Boards Score Fetch
+// console.log('about to post a score');
+// function submitScore(){
+//     // debugger
+//     event.preventDefault()
+//     const configObj = {
+//         method: "POST",
+//         headers: {
+//             "Content-type": "application/json",
+//             "Accept": "application/json"
+//         },
+//         body:JSON.stringify({
+//             score: parseInt(scoreInput.value)
+//         })
+//     }
+//     fetch(boardsURL, configObj)
+    
+//     .then(res => res.json())
+//     .then(renderBoard)
+// }
 
-nameForm.addEventListener("submit", renderName)
+// function renderBoard(board){
+//     console.log(board)
+//     const li = document.createElement('li')
+//     li.dataset.id = board.id
+//     li.innerText = board.score
+//     // li.className = "dataId"
 
-//render player name to DOM
-function renderName(e){
-    e.preventDefault()
-    const nameInput = e.target.children[0].value
-    const ol = document.getElementById('ol1')
-    const li = document.createElement('li')
+//     scoreUl.append(li)
+
+//     scoreForm.reset()
+// }
+// //Player Name & Score
+
+// nameForm.addEventListener("submit", renderName)
+
+// //render player name to DOM
+// function renderName(e){
+//     e.preventDefault()
+//     console.log(document.getElementById('score-ul').dataset.id)
+//     const nameInput = e.target.children[0].value
+//     const ol = document.getElementById('ol1')
+//     const li = document.createElement('li')
 
 
-    li.innerText = nameInput + " -"
-    ol.append(li)
-    submitName(nameInput)
+//     li.innerText = nameInput + " -"
+//     ol.append(li)
+//     submitName(nameInput)
 
-    e.target.reset()
-}
+//     e.target.reset()
+// }
 
-function submitName(name){
-    // debugger
-    fetch(playersURL, {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            player: {name: name, board_id: 1 }
-            // player: {name: name}
-        })
-    })
+// playerForm.addEventListener("submit", renderName)
 
-}
+// //render player name to DOM
+// function renderName(e){
+//     e.preventDefault()
+//     console.log(document.getElementById('score-ul').dataset.id)
+//     const nameInput = e.target.children[0].value
+//     const ol = document.getElementById('ol1')
+//     const li = document.createElement('li')
+
+
+//     li.innerText = nameInput + " -"
+//     ol.append(li)
+//     submitName(nameInput)
+
+//     e.target.reset()
+// }
+
+// function submitName(name){
+//     // debugger
+//     fetch(playersURL, {
+//         method: "POST",
+//         headers: {
+//             "Content-type": "application/json",
+//             "Accept": "application/json"
+//         },
+//         body: JSON.stringify({
+//             player: {name: name, board_id: 1 ,
+//             score: parseInt(scoreInput.value),
+//             board_id: 1 }
+
+//             // player: {name: name}
+//         })
+//     })
+
+// }
 
 fetchBoards()
 
