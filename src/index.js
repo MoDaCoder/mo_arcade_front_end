@@ -306,7 +306,7 @@ function checkForMatch() {
     }
     cardsChosen = []
     cardsChosenId = []
-    resultDisplay.textContent = cardsWon.length
+    resultDisplay.textContent = cardsWon.length*1350
     if (cardsWon.length === cardArray.length/2) {
         resultDisplay.textContent = 'Congratulations! You won!'
     }
