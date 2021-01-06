@@ -3,6 +3,7 @@
 const boardNameForm = document.getElementById("board-name-form")
 const boardNameInput = document.getElementById("board-name-Input")
 const boardTitle = document.getElementById("h3")
+// let createBoardAndPlayerForm = document.createElement("form")
 const boardsURL = 'http://localhost:3000/boards'
 
 //Player Name & Score
@@ -42,6 +43,10 @@ boardNameForm.addEventListener("submit", submitBoardName)
     .then(renderBoardName)
  }
 
+ function renderBoardPlayerform(){
+    
+ }
+
 //Rendering Board
 function renderBoardName(board){
     console.log(board)
@@ -54,9 +59,8 @@ function renderBoardName(board){
 }
 
 playerForm.addEventListener("submit", renderPlayer)
-
 //Post Player
-function submitPlayer(name, scoreInput){
+function submitPlayer(name, score){
     // debugger
     fetch(playersURL, {
         method: "POST",
@@ -65,26 +69,27 @@ function submitPlayer(name, scoreInput){
             "Accept": "application/json"
         },
         body: JSON.stringify({
-            player: {name: name, board_id: 1 ,
-            score: parseInt(scoreInput.value),
-            board_id: 1 }
+            player: {name: name, 
+                score: score, 
+                board_id: 1
+             }
         })
     })
 }
 //render player name to DOM
 function renderPlayer(e){
     e.preventDefault()
-    console.log(e.target.children[0].value)
+    // console.log(e.target.children[0].value)
     const nameInput = e.target.children[0].value
     const nameLi = document.createElement('li')
     nameLi.innerText = nameInput + " -"
     nameOl.append(nameLi)
 
-    console.log(e.target.children[1].value)
+    // console.log(e.target.children[1].value)
     const scoreInput = e.target.children[1].value
     const scoreLi = document.createElement('li')
     scoreLi.innerText = scoreInput
-
+    // console.log(scoreInput)
     scoreUl.append(scoreLi)
 
     submitPlayer(nameInput, scoreInput)
