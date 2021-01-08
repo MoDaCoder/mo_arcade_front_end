@@ -16,7 +16,7 @@ const playersURL = 'http://localhost:3000/players'
 
 boardNameForm.addEventListener("submit", Board.submitBoardName)
 
-playerForm.addEventListener("submit", renderPlayer)
+playerForm.addEventListener("submit", Player.renderPlayer)
 
 // //Post Player
 // function submitPlayer(name, score){

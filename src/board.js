@@ -5,9 +5,9 @@ class Board {
     static allBoards = []
 
     constructor(board){
-        this.id = board.id
-        this.name = board.attributes.name
-        this.players = board.attributes.players
+        this.id = board.id;
+        this.name = board.attributes.name;
+        this.players = board.attributes.players;
         Board.allBoards.push(this)
     }
 

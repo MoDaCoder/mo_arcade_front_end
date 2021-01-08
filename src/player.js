@@ -1,41 +1,51 @@
 class Player {
+    static renderedScores = []
 
-//Post Player
-submitPlayer(name, score){
-    const configObj = {
-    method: "POST",
-    headers: {
-        "Content-type": "application/json",
-        "Accept": "application/json"
-    },
-    body: JSON.stringify({
-        player: {name: name, 
-            score: score, 
-            board_id: 1
-         }
-    })
-}
-fetch(playersURL, configObj)
-
-}
+    constructor(player) {
+        this.name = player.name;
+        this.score = player.score
+    }
 
 //render player name to DOM
-renderPlayer(e){
-    e.preventDefault()
-    const nameInput = e.target.children[0].value
-    const nameLi = document.createElement('li')
-    nameLi.innerText = nameInput + " -"
-    nameOl.append(nameLi)
+    static renderPlayer(e){
+        e.preventDefault()
+        const nameInput = e.target.children[0].value
+        const nameLi = document.createElement('li')
+        nameLi.innerText = nameInput + " -"
+        nameOl.append(nameLi)
 
-    const scoreInput = e.target.children[1].value
-    const scoreLi = document.createElement('li')
-    scoreLi.innerText = scoreInput
+        const scoreInput = e.target.children[1].value
+        const scoreLi = document.createElement('li')
+        scoreLi.innerText = scoreInput
 
-    scoreUl.append(scoreLi)
+        scoreUl.append(scoreLi)
 
-    submitPlayer(nameInput, scoreInput)
+        this.submitPlayer(nameInput, scoreInput)
 
-    e.target.reset()
-}
+        e.target.reset()
+    }
+
+
+
+//Post Player
+    submitPlayer(name, score){
+
+        const configObj = {
+        method: "POST",
+        headers: {
+            "Content-type": "application/json",
+            "Accept": "application/json"
+        },
+        body: JSON.stringify({
+            player: {name: name, 
+                score: score, 
+                board_id: 1
+            }
+        })
+    }
+    fetch(playersURL, configObj)
+
+
+    }
 
 }
