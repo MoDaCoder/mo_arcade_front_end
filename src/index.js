@@ -15,11 +15,11 @@ const scoreUl = document.getElementById('score-ul')
 const playersURL = 'http://localhost:3000/players'
 
 // Get Boards Name
-function fetchBoards(){
-    fetch(boardsURL)
-    .then(res => res.json())
-    .then(boards => boards.forEach(data => renderBoardName(data.data.attributes)))
-}
+// function fetchBoards(){
+//     fetch(boardsURL)
+//     .then(res => res.json())
+//     .then(boards => boards.forEach(data => renderBoardName(data.data.attributes)))
+// }
 
 boardNameForm.addEventListener("submit", submitBoardName)
 
@@ -44,19 +44,19 @@ boardNameForm.addEventListener("submit", submitBoardName)
 }
 
 //Rendering Board
-function renderBoardName(board){
-    console.log(board)
-    const h3 = document.createElement('h3')
-    const p = document.createElement('p')
+// function renderBoardName(board){
+//     console.log(board)
+//     const h3 = document.createElement('h3')
+//     const p = document.createElement('p')
 
-    h3.innerText = board.name
+//     h3.innerText = board.name
     
-    p.appendChild(h3)
+//     p.appendChild(h3)
     
-    boardTitle.append(p)
+//     boardTitle.append(p)
 
-    boardNameForm.reset()
-}
+//     boardNameForm.reset()
+// }
 
 playerForm.addEventListener("submit", renderPlayer)
 
@@ -100,7 +100,7 @@ function renderPlayer(e){
     e.target.reset()
 }
 
-fetchBoards()
+Board.fetchBoards()
 
 // ****Urban Flipporama****
 document.addEventListener('DOMContentLoaded', () => {
