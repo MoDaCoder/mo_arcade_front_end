@@ -21,27 +21,27 @@ const playersURL = 'http://localhost:3000/players'
 //     .then(boards => boards.forEach(data => renderBoardName(data.data.attributes)))
 // }
 
-boardNameForm.addEventListener("submit", submitBoardName)
+boardNameForm.addEventListener("submit", Board.submitBoardName)
 
-//Posting Board
- function submitBoardName(){
-     event.preventDefault()
+// //Posting Board
+//  function submitBoardName(){
+//      event.preventDefault()
 
-     const configObj = {
-         method: "Post",
-         headers: {
-             "Content-type": "application/json",
-             "Accept": "application/json"
-         },
-         body:JSON.stringify({
-            name: boardNameInput.value
-         })
-     }
-    fetch(boardsURL, configObj)
+//      const configObj = {
+//          method: "Post",
+//          headers: {
+//              "Content-type": "application/json",
+//              "Accept": "application/json"
+//          },
+//          body:JSON.stringify({
+//             name: boardNameInput.value
+//          })
+//      }
+//     fetch(boardsURL, configObj)
     
-    .then(res => res.json())
-    .then(data => renderBoardName(data.data.attributes))
-}
+//     .then(res => res.json())
+//     .then(data => renderBoardName(data.data.attributes))
+// }
 
 //Rendering Board
 // function renderBoardName(board){

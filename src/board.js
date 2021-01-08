@@ -40,4 +40,27 @@ class Board {
         boardNameForm.reset()
     }
 
+    //Posting Board
+    static submitBoardName(){
+    event.preventDefault()
+
+    const configObj = {
+        method: "Post",
+        headers: {
+            "Content-type": "application/json",
+            "Accept": "application/json"
+        },
+        body:JSON.stringify({
+           name: boardNameInput.value
+        })
+    }
+   fetch(boardsURL, configObj)
+   
+   .then(res => res.json())
+   .then(data => {
+       let newBoard = new Board(data.data)
+       newBoard.renderBoardName()
+   })
+}
+
 }
