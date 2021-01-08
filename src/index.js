@@ -14,49 +14,7 @@ const scoreInput = document.getElementById("score-input")
 const scoreUl = document.getElementById('score-ul')
 const playersURL = 'http://localhost:3000/players'
 
-// Get Boards Name
-// function fetchBoards(){
-//     fetch(boardsURL)
-//     .then(res => res.json())
-//     .then(boards => boards.forEach(data => renderBoardName(data.data.attributes)))
-// }
-
 boardNameForm.addEventListener("submit", Board.submitBoardName)
-
-// //Posting Board
-//  function submitBoardName(){
-//      event.preventDefault()
-
-//      const configObj = {
-//          method: "Post",
-//          headers: {
-//              "Content-type": "application/json",
-//              "Accept": "application/json"
-//          },
-//          body:JSON.stringify({
-//             name: boardNameInput.value
-//          })
-//      }
-//     fetch(boardsURL, configObj)
-    
-//     .then(res => res.json())
-//     .then(data => renderBoardName(data.data.attributes))
-// }
-
-//Rendering Board
-// function renderBoardName(board){
-//     console.log(board)
-//     const h3 = document.createElement('h3')
-//     const p = document.createElement('p')
-
-//     h3.innerText = board.name
-    
-//     p.appendChild(h3)
-    
-//     boardTitle.append(p)
-
-//     boardNameForm.reset()
-// }
 
 playerForm.addEventListener("submit", renderPlayer)
 
