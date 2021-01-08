@@ -1,9 +1,9 @@
 //**** Score Board ****
 //Board Name
 const boardNameForm = document.getElementById("board-name-form")
+const boardPlayer = document.getElementById("board-player")
 const boardNameInput = document.getElementById("board-name-Input")
 const boardTitle = document.getElementById("h3")
-// let createBoardAndPlayerForm = document.createElement("form")
 const boardsURL = 'http://localhost:3000/boards'
 
 //Player Name & Score
@@ -18,7 +18,7 @@ const playersURL = 'http://localhost:3000/players'
 function fetchBoards(){
     fetch(boardsURL)
     .then(res => res.json())
-    .then(boards => boards.forEach(renderBoardName))
+    .then(boards => boards.forEach(data => renderBoardName(data.data.attributes)))
 }
 
 boardNameForm.addEventListener("submit", submitBoardName)
@@ -40,29 +40,29 @@ boardNameForm.addEventListener("submit", submitBoardName)
     fetch(boardsURL, configObj)
     
     .then(res => res.json())
-    .then(renderBoardName)
- }
-
- function renderBoardPlayerform(){
-    
- }
+    .then(data => renderBoardName(data.data.attributes))
+}
 
 //Rendering Board
 function renderBoardName(board){
     console.log(board)
     const h3 = document.createElement('h3')
+    const p = document.createElement('p')
+
     h3.innerText = board.name
     
-    boardTitle.append(h3)
+    p.appendChild(h3)
+    
+    boardTitle.append(p)
 
     boardNameForm.reset()
 }
 
 playerForm.addEventListener("submit", renderPlayer)
+
 //Post Player
 function submitPlayer(name, score){
-    // debugger
-    fetch(playersURL, {
+        const configObj = {
         method: "POST",
         headers: {
             "Content-type": "application/json",
@@ -74,8 +74,11 @@ function submitPlayer(name, score){
                 board_id: 1
              }
         })
-    })
+    }
+    fetch(playersURL, configObj)
+
 }
+
 //render player name to DOM
 function renderPlayer(e){
     e.preventDefault()
