@@ -1,5 +1,7 @@
 class Board {
 
+    //NEED TO ADD A DELETE FUNCTION
+
     static allBoards = []
 
     constructor(board){
