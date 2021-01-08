@@ -18,45 +18,45 @@ boardNameForm.addEventListener("submit", Board.submitBoardName)
 
 playerForm.addEventListener("submit", renderPlayer)
 
-//Post Player
-function submitPlayer(name, score){
-        const configObj = {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            player: {name: name, 
-                score: score, 
-                board_id: 1
-             }
-        })
-    }
-    fetch(playersURL, configObj)
+// //Post Player
+// function submitPlayer(name, score){
+//         const configObj = {
+//         method: "POST",
+//         headers: {
+//             "Content-type": "application/json",
+//             "Accept": "application/json"
+//         },
+//         body: JSON.stringify({
+//             player: {name: name, 
+//                 score: score, 
+//                 board_id: 1
+//              }
+//         })
+//     }
+//     fetch(playersURL, configObj)
 
-}
+// }
 
-//render player name to DOM
-function renderPlayer(e){
-    e.preventDefault()
-    // console.log(e.target.children[0].value)
-    const nameInput = e.target.children[0].value
-    const nameLi = document.createElement('li')
-    nameLi.innerText = nameInput + " -"
-    nameOl.append(nameLi)
+// //render player name to DOM
+// function renderPlayer(e){
+//     e.preventDefault()
+//     // console.log(e.target.children[0].value)
+//     const nameInput = e.target.children[0].value
+//     const nameLi = document.createElement('li')
+//     nameLi.innerText = nameInput + " -"
+//     nameOl.append(nameLi)
 
-    // console.log(e.target.children[1].value)
-    const scoreInput = e.target.children[1].value
-    const scoreLi = document.createElement('li')
-    scoreLi.innerText = scoreInput
-    // console.log(scoreInput)
-    scoreUl.append(scoreLi)
+//     // console.log(e.target.children[1].value)
+//     const scoreInput = e.target.children[1].value
+//     const scoreLi = document.createElement('li')
+//     scoreLi.innerText = scoreInput
+//     // console.log(scoreInput)
+//     scoreUl.append(scoreLi)
 
-    submitPlayer(nameInput, scoreInput)
+//     submitPlayer(nameInput, scoreInput)
 
-    e.target.reset()
-}
+//     e.target.reset()
+// }
 
 Board.fetchBoards()
 
