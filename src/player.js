@@ -1,27 +1,38 @@
 class Player {
-    static renderedScores = []
+    static renderedPlayer = []
+
     constructor(player) {
         this.name = player.name;
-        this.score = player.score
+        Player.renderdPlayer.push(this)
     }
 
-    // static fetchPlayers(){
-    //     // this.loadedPlayers = []
-    //     fetch(playersURL)
-    //     .then(res => res.json())
-    //     .then(players => {
-    //         for (let player of players){
-    //             let newPlayer = new Player(player.data)
-    //         }
-    //         // this.renderPlayers()
-    //     })
-    // }
+    static fetchPlayers(){
+        // event.preventDefault()
+        // this.loadedPlayers = []
+        fetch(playersURL)
+        .then(res => res.json())
+        .then(players => {
+            for (let player of players){
+                let newPlayer = new Player(player.data)
+            }
+            Player.renderPlayer()
+        })
+    }
+
+    static renderPlayer(){
+        console.log(Player.renderdPlayer)
+        const playerLi = document.createElement('li')
+        playerLi.innerText = this.name
+        console.log(this.name)
+        playerName.appendChild(playerLi)
+        playerForm.reset()
+    }
 
     //render player name to DOM
     //Post Player
-    static submitPlayer(event) {
-        const nameInput = event
-        console.log(event.target.innerHTML)
+    static submitPlayer(nameInput) {
+        // const nameInput = event
+        // console.log(event.target.innerHTML)
         const configObj = {
             method: "POST",
             headers: {
@@ -30,8 +41,7 @@ class Player {
             },
             body: JSON.stringify({
                 player: {
-                    name: nameInput,
-                    score: player.score,
+                    name: nameInput
                 }
             })
         }

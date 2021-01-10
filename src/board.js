@@ -7,16 +7,13 @@ class Board {
         Board.allBoards.push(this)
     }
 
-    // Removed (e.target.innerHTML) since event was declared in player class it's out of scope here and is undefined.
-    //Also to get the Player.submitPlayer input I used .value
     static fetchBoards() {
         // debugger
-        //EVENT IS UNDEFINED SO IT WAS REMOVED
         console.log(Player)
-        console.log(submitName)
+        console.log(submitPlayer)
         // Player.submitPlayer(e.target.innerHTML)
         // console.log(Player.submitPlayer.value)
-        Player.submitPlayer.value
+        // Player.submitPlayer.value
         fetch(boardsURL)
             .then(res => res.json())
             .then(boards => {
@@ -28,6 +25,7 @@ class Board {
     }
     
     static renderBoard() {
+        console.log(Board.allBoards)
         Board.allBoards.sort(() => 0.5 - Math.random())
         const grid = document.querySelector('.grid')
         const resultDisplay = document.querySelector('#result')
