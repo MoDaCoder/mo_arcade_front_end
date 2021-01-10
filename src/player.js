@@ -4,6 +4,19 @@ class Player {
         this.name = player.name;
         this.score = player.score
     }
+
+    // static fetchPlayers(){
+    //     // this.loadedPlayers = []
+    //     fetch(playersURL)
+    //     .then(res => res.json())
+    //     .then(players => {
+    //         for (let player of players){
+    //             let newPlayer = new Player(player.data)
+    //         }
+    //         // this.renderPlayers()
+    //     })
+    // }
+
     //render player name to DOM
     //Post Player
     static submitPlayer(event) {
@@ -18,7 +31,7 @@ class Player {
             body: JSON.stringify({
                 player: {
                     name: nameInput,
-                    score: "place.score",
+                    score: player.score,
                 }
             })
         }

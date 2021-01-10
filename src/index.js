@@ -14,8 +14,13 @@ const playersURL = 'http://localhost:3000/players'
 const scoreTitle = document.getElementById('score-title')
 const submitName = document.getElementById('submit-name')
 // scoreTitle.style.display = "none"
-submitName.addEventListener("click", Board.fetchBoards)
 
+//instead of click what if we put ("submit", Board.fetchBoards)
+submitName.addEventListener("submit", Board.fetchBoards)
+
+//Can we declare the submitName inside a class to make it more explicit? 
+//So if we declare it in the constructor in player we'd be able to call it in
+//Board class as 
 //CAN WE COMBINE DOMcontentLoaded with submitName event listener??
 //WHAT IF DO A ON CLICK DOM CONTENT LOADED??
 
@@ -60,7 +65,7 @@ submitName.addEventListener("click", Board.fetchBoards)
 //     e.target.reset()
 // }
 Board.fetchBoards()
-Player.fetchPlayers()
+// Player.fetchPlayers()
 
 // // ****Urban Flipporama****
 // document.addEventListener('DOMContentLoaded', () => {

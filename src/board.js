@@ -6,13 +6,17 @@ class Board {
         this.img = board.attributes.img;
         Board.allBoards.push(this)
     }
-    //changed Player.submitPlayer on line 14 to 
-    // Player.submitName and innerHTML was missing THE L
-    //WHAT IF WE DO ON CLICK DOM CONTENT LOADED??
-    static fetchBoards(event) {
-        // debugger EVENT IS UNDEFINED
-        console.log(event)
-        Player.submitName(event.target.innerHTML)
+
+    // Removed (e.target.innerHTML) since event was declared in player class it's out of scope here and is undefined.
+    //Also to get the Player.submitPlayer input I used .value
+    static fetchBoards() {
+        // debugger
+        //EVENT IS UNDEFINED SO IT WAS REMOVED
+        console.log(Player)
+        console.log(submitName)
+        // Player.submitPlayer(e.target.innerHTML)
+        // console.log(Player.submitPlayer.value)
+        Player.submitPlayer.value
         fetch(boardsURL)
             .then(res => res.json())
             .then(boards => {
@@ -25,7 +29,6 @@ class Board {
     
     static renderBoard() {
         Board.allBoards.sort(() => 0.5 - Math.random())
-        //You Used let here instead of var/Might cause errors
         const grid = document.querySelector('.grid')
         const resultDisplay = document.querySelector('#result')
         let cardsChosen = []
@@ -78,4 +81,3 @@ class Board {
         createBoard()
     }
 }
-// })
