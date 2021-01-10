@@ -16,7 +16,9 @@ const submitName = document.getElementById('submit-name')
 // scoreTitle.style.display = "none"
 
 //instead of click what if we put ("submit", Board.fetchBoards)
+// submitName.addEventListener("click", Board.fetchBoards)
 submitName.addEventListener("submit", Board.fetchBoards)
+
 
 //Can we declare the submitName inside a class to make it more explicit? 
 //So if we declare it in the constructor in player we'd be able to call it in
