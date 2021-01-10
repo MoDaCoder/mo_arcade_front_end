@@ -6,10 +6,11 @@ class Board {
         this.img = board.attributes.img;
         Board.allBoards.push(this)
     }
-    //changed Player.submitPlayer to Player.submitName and innerHTML was missing THE L
-    
+    //changed Player.submitPlayer on line 14 to 
+    // Player.submitName and innerHTML was missing THE L
+    //WHAT IF WE DO ON CLICK DOM CONTENT LOADED??
     static fetchBoards(event) {
-        // debugger EVEN IS UNDEFINED
+        // debugger EVENT IS UNDEFINED
         console.log(event)
         Player.submitName(event.target.innerHTML)
         fetch(boardsURL)
@@ -77,4 +78,4 @@ class Board {
         createBoard()
     }
 }
-})
+// })

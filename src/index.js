@@ -17,6 +17,7 @@ const submitName = document.getElementById('submit-name')
 submitName.addEventListener("click", Board.fetchBoards)
 
 //CAN WE COMBINE DOMcontentLoaded with submitName event listener??
+//WHAT IF DO A ON CLICK DOM CONTENT LOADED??
 
 
 // //Post Player
