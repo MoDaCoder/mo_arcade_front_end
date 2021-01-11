@@ -18,33 +18,20 @@
             <input type id="player-input" placeholder="Player Tag">
             <input type="submit">
         </form>
-        <span id="player-name"></span>
     </div>
-    
-    
+    <div>
+        <form id="score-form">
+            <input type="number" id="score-input" placeholder="000">
+            <input type="submit">
+        </form>
+    </div>
 
-        <!-- <div id="card" className="card">
-            <div id="card-body" className="card-body">
-                <table id="table" className="table">
-                    <tbody>
-                        <thead className="high-score"> 
-                            <div id="h3"></div> 
-                        </thead>
-                        <tr>
-                            <th scope="col">Player -</th>
-                            <th scope="col">Score</th>
-                        </tr>
-                        <tr scope="row">
-                            <td id="player-name"><ol id="ol1"></ol></td>
-                            Append score from games (will change later)
-                            <td id="player-score" ><ul id="score-ul"></ul></td>
-                        </tr>
-                    </tbody>
-                </table>
-            </div>
-        </div> -->
-    
-    <h3>Score:<span id="result"></span></h3>
+    <div id="player">
+    <span id="player-name"></span>
+    <span id="player-score"></span>
+    </div>
+
+    <h3 id="result">Score:</h3>
 
     <div class="grid">
     </div>
@@ -57,6 +44,7 @@
     <link rel="stylesheet" href="style.css"></link>
     
     <script src="src/board.js"></script>
+    <script src="src/score.js"></script>
     <script src="src/player.js"></script>
     <script src="src/index.js"></script>
 
