@@ -21,31 +21,31 @@ const scoreNumber = document.getElementById('player-score')
 
 playerForm.addEventListener("submit", Player.submitPlayer)
 playerForm.addEventListener("submit", Board.fetchBoards)
-scoreForm.addEventListener("submit", renderScore)
+scoreForm.addEventListener("submit", Score.renderScore)
 
-function renderScore(){
-    event.preventDefault()
-    const scoreLi = document.createElement('li')
-    scoreLi.innerText = scoreInput.value
-    scoreNumber.append(scoreLi)
-    submitScore(scoreInput.value)
-    scoreForm.reset()
-}
+// function renderScore(){
+//     event.preventDefault()
+//     const scoreLi = document.createElement('li')
+//     scoreLi.innerText = scoreInput.value
+//     scoreNumber.append(scoreLi)
+//     submitScore(scoreInput.value)
+//     scoreForm.reset()
+// }
 
-function submitScore(score){
-    console.log(score)
-    fetch(scoreURL, {
-        method: "POST",
-        headers: {
-            "Content-type": "application/json",
-            "Accept": "application/json"
-        },
-        body: JSON.stringify({
-            score_value: score,
-            player_id: 1
-        })
-    })
-}
+// function submitScore(score){
+//     console.log(score)
+//     fetch(scoreURL, {
+//         method: "POST",
+//         headers: {
+//             "Content-type": "application/json",
+//             "Accept": "application/json"
+//         },
+//         body: JSON.stringify({
+//             score_value: score,
+//             player_id: 1
+//         })
+//     })
+// }
 
 Board.fetchBoards()
 Player.fetchPlayers()
