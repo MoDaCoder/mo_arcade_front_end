@@ -3,10 +3,10 @@ class Player {
     static allPlayers = []
 
     constructor(player) {
-        // this.id = player.id
+        // console.log(player)
         this.name = player.attributes.name
         Player.allPlayers.push(this)
-        console.log(this)
+        // console.log(this)
         //this is the player new object
     }
     
@@ -21,6 +21,7 @@ class Player {
         .then(res => res.json())
         .then(players => {
             for(let player of players){
+                // console.log(player)
                 let newPlayer = new Player(player.data)
             }
             this.renderPlayers()
@@ -37,6 +38,7 @@ class Player {
 
     //Post Player
     static submitPlayer() {
+        // debugger
         event.preventDefault()
         const configObj = {
             method: "POST",
@@ -51,11 +53,12 @@ class Player {
             })
         }
 
+        // debugger
         fetch(playersURL, configObj)
         .then(res => res.json())
         .then(data => {
             //How can I access that data correctly?!
-            let newPlayers = new Player(data)
+            let newPlayers = new Player(data.data)
             newPlayers.renderPlayer()
         })
     }
