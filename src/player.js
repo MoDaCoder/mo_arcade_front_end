@@ -31,10 +31,23 @@ class Player {
 
     renderPlayer(){
         const playerLi = document.createElement('li')
+        const playerUl = document.createElement('span')
+        // const deleteBtn = document.createElement("button")
+        // deleteBtn.innerText = "delete"
+        // deleteBtn.addEventListener("click", deletePlayer)
         playerLi.innerText = this.name
-        playerName.appendChild(playerLi)
+        
+        // playerUl.append(playerLi, deleteBtn)
+        playerUl.append(playerLi)
+        playerName.appendChild(playerUl)
         playerForm.reset()
     }
+
+    // static deletePlayer(){
+    //     fetch(`%{playerURL}`, {
+    //         method: "DELETE"
+    //     })
+    // }
 
     //Post Player
     static submitPlayer() {

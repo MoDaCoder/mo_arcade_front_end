@@ -19,7 +19,6 @@ class Board {
     }
     
     static renderBoard() {
-        // playerForm.style.display = "none"
         Board.allBoards.sort(() => 0.5 - Math.random())
         const grid = document.querySelector('.grid')
         const resultDisplay = document.querySelector('#result')

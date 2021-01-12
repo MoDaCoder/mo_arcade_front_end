@@ -1,12 +1,8 @@
 class Score {
 
-    static allScores = []
-
     constructor(score){
-        console.log(score)
         this.player_id = score.player_id
         this.score_value = score.score_value
-        Score.allPlayers.push(this)
     }
 
     static renderScore(){
@@ -20,7 +16,6 @@ class Score {
     }
     
     static submitScore(score){
-        console.log(score)
         fetch(scoreURL, {
             method: "POST",
             headers: {
@@ -31,8 +26,6 @@ class Score {
                 score_value: score,
                 player_id: 1
             })
-        }).then(res => res.json()
-        .then(console.log)
-        )
+        })
     }
 }
