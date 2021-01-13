@@ -30,24 +30,28 @@ class Player {
     }
 
     renderPlayer(){
+        // debugger
         const playerLi = document.createElement('li')
         const playerUl = document.createElement('span')
-        // const deleteBtn = document.createElement("button")
-        // deleteBtn.innerText = "delete"
-        // deleteBtn.addEventListener("click", deletePlayer)
+        const deleteBtn = document.createElement("button")
+        deleteBtn.innerText = "delete"
+        deleteBtn.addEventListener("click", this.deletePlayer)
         playerLi.innerText = this.name
         
-        // playerUl.append(playerLi, deleteBtn)
-        playerUl.append(playerLi)
+        playerUl.append(playerLi, deleteBtn)
+        // playerUl.append(playerLi)
         playerName.appendChild(playerUl)
         playerForm.reset()
     }
-
-    // static deletePlayer(){
-    //     fetch(`%{playerURL}`, {
-    //         method: "DELETE"
-    //     })
-    // }
+        
+    deletePlayer(){
+        // debugger
+        // const playerId = this.parentElement.id
+        // fetch(`${playerURL}`/`${playerId}`, {
+        //     method: "DELETE"
+        // })
+        this.parentElement.remove()
+    }
 
     //Post Player
     static submitPlayer() {
