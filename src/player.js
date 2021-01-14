@@ -3,11 +3,11 @@ class Player {
     static allPlayers = []
 
     constructor(player) {
-        // console.log(player)
+        this.id = player.id
         this.name = player.attributes.name
+        // console.log(this.id) This gives back all player Id's
+        // console.log(this.id)
         Player.allPlayers.push(this)
-        // console.log(this)
-        //this is the player new object
     }
     
     static renderPlayers(){
@@ -32,15 +32,18 @@ class Player {
     renderPlayer(){
         // debugger
         const playerLi = document.createElement('li')
-        const playerUl = document.createElement('span')
         const deleteBtn = document.createElement("button")
         deleteBtn.innerText = "delete"
         deleteBtn.addEventListener("click", this.deletePlayer)
+        playerLi.dataset.id = this.id
         playerLi.innerText = this.name
+
+        const scoreForm = document.createElement('form')
+        scoreForm.innerHTML += `<input value="Submit Score"><input type="submit">`
+        scoreForm.addEventListener("submit", Score.renderScore)
         
-        playerUl.append(playerLi, deleteBtn)
-        // playerUl.append(playerLi)
-        playerName.appendChild(playerUl)
+        playerLi.append(deleteBtn)
+        playerName.appendChild(playerLi)
         playerForm.reset()
     }
         

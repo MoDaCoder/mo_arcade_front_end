@@ -8,6 +8,7 @@ class Board {
     }
 
     static fetchBoards() {
+        event.preventDefault()
         fetch(boardsURL)
             .then(res => res.json())
             .then(boards => {
