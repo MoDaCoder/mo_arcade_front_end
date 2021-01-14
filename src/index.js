@@ -1,7 +1,6 @@
 //**** Score Board ****
 //Board Name
 const boardForm = document.getElementById('board-form')
-const boardPlayer = document.getElementById('board-player')
 const boardNameInput = document.getElementById('board-name-Input')
 const boardTitle = document.getElementById('h3')
 const boardsURL = 'http://localhost:3000/boards'
@@ -24,7 +23,7 @@ const scoreNumber = document.getElementById('player-score')
 playerForm.addEventListener("submit", Player.submitPlayer)
 boardForm.addEventListener("submit", Board.fetchBoards)
 
-scoreForm.addEventListener("submit", Score.renderScore)
+// scoreForm.addEventListener("submit", Score.renderScore)
 // scoreForm.addEventListener("submit", Score.allowOrNot)
 
 Player.fetchPlayers()

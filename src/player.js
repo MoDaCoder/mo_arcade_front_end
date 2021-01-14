@@ -5,8 +5,7 @@ class Player {
     constructor(player) {
         this.id = player.id
         this.name = player.attributes.name
-        // console.log(this.id) This gives back all player Id's
-        // console.log(this.id)
+        this.scores = player.attributes.scores
         Player.allPlayers.push(this)
     }
     
@@ -21,7 +20,6 @@ class Player {
         .then(res => res.json())
         .then(players => {
             for(let player of players){
-                // console.log(player)
                 let newPlayer = new Player(player.data)
             }
             this.renderPlayers()
@@ -30,7 +28,6 @@ class Player {
     }
 
     renderPlayer(){
-        // debugger
         const playerLi = document.createElement('li')
         const deleteBtn = document.createElement("button")
         deleteBtn.innerText = "delete"
@@ -39,26 +36,28 @@ class Player {
         playerLi.innerText = this.name
 
         const scoreForm = document.createElement('form')
-        scoreForm.innerHTML += `<input value="Submit Score"><input type="submit">`
-        scoreForm.addEventListener("submit", Score.renderScore)
+        scoreForm.innerHTML += `<input type="submit" value="Submit Score">`
+        scoreForm.addEventListener("submit", Score.createScore)
         
-        playerLi.append(deleteBtn)
+        const scoreList = document.createElement('ul')
+        this.scores.forEach(score => {
+            console.log(this.scores)
+            let scoreObj = new Score(score)
+            console.log(scoreObj)
+            scoreObj.renderScore(scoreList)
+        })
+
+        playerLi.append(scoreForm, scoreList, deleteBtn)
         playerName.appendChild(playerLi)
         playerForm.reset()
     }
         
     deletePlayer(){
-        // debugger
-        // const playerId = this.parentElement.id
-        // fetch(`${playerURL}`/`${playerId}`, {
-        //     method: "DELETE"
-        // })
         this.parentElement.remove()
     }
 
     //Post Player
     static submitPlayer() {
-        // debugger
         event.preventDefault()
         const configObj = {
             method: "POST",
@@ -75,7 +74,6 @@ class Player {
         fetch(playersURL, configObj)
         .then(res => res.json())
         .then(data => {
-            //How can I access that data correctly?!
             let newPlayers = new Player(data.data)
             newPlayers.renderPlayer()
         })
