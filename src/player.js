@@ -38,7 +38,7 @@ class Player {
         const scoreForm = document.createElement('form')
         scoreForm.innerHTML += `<input type="submit" value="Submit Score">`
         scoreForm.addEventListener("submit", Score.createScore)
-        
+
         const scoreList = document.createElement('ul')
         this.scores.forEach(score => {
             console.log(this.scores)

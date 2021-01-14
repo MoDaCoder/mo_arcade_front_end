@@ -25,15 +25,15 @@ class Score {
         scoreList.appendChild(li)    
     }
 
-       static allowOrNot(){
-        // event.preventDefault()
-        const result = document.getElementById('result').innerHTML
-        if (result === "Score:"){
-            alert("You have no score to submit!");
-        } else {
-            this.renderScore()
-        }
-    }
+    //    static allowOrNot(){
+    //     event.preventDefault()
+    //     const result = document.getElementById('result').innerHTML
+    //     if (result === "Score:"){
+    //         alert("You have no score to submit!");
+    //     } else {
+    //         Score.createScore()
+    //     }
+    // }
 
     static submitScore(score, scoreList, playerId){
         fetch(scoreURL, {

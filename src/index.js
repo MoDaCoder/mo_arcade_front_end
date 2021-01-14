@@ -23,7 +23,4 @@ const scoreNumber = document.getElementById('player-score')
 playerForm.addEventListener("submit", Player.submitPlayer)
 boardForm.addEventListener("submit", Board.fetchBoards)
 
-// scoreForm.addEventListener("submit", Score.renderScore)
-// scoreForm.addEventListener("submit", Score.allowOrNot)
-
 Player.fetchPlayers()
