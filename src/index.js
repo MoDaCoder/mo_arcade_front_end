@@ -1,7 +1,5 @@
 //**** Score Board ****
 //Board Name
-const boardForm = document.getElementById('board-form')
-const boardNameInput = document.getElementById('board-name-Input')
 const boardTitle = document.getElementById('h3')
 const boardsURL = 'http://localhost:3000/boards'
 
@@ -12,15 +10,15 @@ const playerInput = document.getElementById('player-input')
 const playerName = document.getElementById('player-name')
 
 const scoreURL = 'http://localhost:3000/scores'
-const scoreForm = document.getElementById('score-form')
-const scoreInput = document.getElementById('score-input')
-const scoreNumber = document.getElementById('player-score')
 
 // const scoreTitle = document.getElementById('result')
 // scoreTitle.style.display = "none"
 // const scoreTitles = scoreTitle.style.display = "visible"
+// function visible(){
+//     scoreTitles;
+// }
+// boardForm.addEventListener("click", visible)
 
 playerForm.addEventListener("submit", Player.submitPlayer)
-boardForm.addEventListener("submit", Board.fetchBoards)
 
 Player.fetchPlayers()

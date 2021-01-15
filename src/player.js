@@ -29,14 +29,15 @@ class Player {
 
     renderPlayer(){
         const playerLi = document.createElement('li')
-        const deleteBtn = document.createElement("button")
-        deleteBtn.innerText = "delete"
-        deleteBtn.addEventListener("click", this.deletePlayer)
+        // const deleteBtn = document.createElement("button")
+        // deleteBtn.innerText = "delete"
+        // deleteBtn.addEventListener("click", this.deletePlayer)
         playerLi.dataset.id = this.id
         playerLi.innerText = this.name
 
         const scoreForm = document.createElement('form')
         scoreForm.innerHTML += `<input type="submit" value="Submit Score">`
+
         scoreForm.addEventListener("submit", Score.createScore)
 
         const scoreList = document.createElement('ul')
@@ -47,14 +48,14 @@ class Player {
             scoreObj.renderScore(scoreList)
         })
 
-        playerLi.append(scoreForm, scoreList, deleteBtn)
+        playerLi.append(scoreForm, scoreList)
         playerName.appendChild(playerLi)
         playerForm.reset()
     }
         
-    deletePlayer(){
-        this.parentElement.remove()
-    }
+    // deletePlayer(){
+    //     this.parentElement.remove()
+    // }
 
     //Post Player
     static submitPlayer() {

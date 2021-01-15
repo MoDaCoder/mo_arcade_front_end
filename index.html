@@ -6,35 +6,29 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Mo's Arcade</title>
 </head>
-
 <body>
-    <h1 className="arcade">"Mo's Arcade (Logo Here)"</h1>
-
-    <h3>Enter Player Tag</h3>
+    <h1 className="arcade">Mo's Arcade (Logo Here)</h1>
+    <h3>Start Game</h3>
     <div>
-        <form id="board-form">
-            <input type="submit" value="Start">
-            </form>
+        <input id="board-fetch" type="button" value="START" onclick="Board.fetchBoards()"/>
     </div>
+    <p></p>
     <div>
         <form id="player-form">
             <input type id="player-input" placeholder="Player Tag">
-            <input type="submit">
+            <input type="submit">        
         </form>
     </div>
-
     <div id="player">
-    <span id="player-name"></span>
+        <span id="player-name"></span>
     </div>
-
     <h3 id="result">Score:</h3>
-
     <div class="grid">
     </div>
     <div class="sound-track">
-    <audio controls loop>
-        <source src="media/Arcade2mp3.mp3" type="audio/mp3">
-    </audio>
+        <audio controls loop>
+            <source src="media/Arcade2mp3.mp3" type="audio/mp3">
+        </audio>
     </div>
 
     <link rel="stylesheet" href="style.css"></link>
